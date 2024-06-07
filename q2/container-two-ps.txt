@@ -1,0 +1,6 @@
+controlplane $ kubectl exec -it container-two -- sh
+/ # ps
+PID   USER     TIME  COMMAND
+    1 root      0:00 sleep 1200
+    6 root      0:00 sh
+   11 root      0:00 ps

@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: container-two
+  name: container-two
+spec:
+  containers:
+  - image: busybox:1.28
+    name: container-two
+    resources: {}
+    command:
+    - "/bin/sh"
+    - "-c"
+    - "sleep 1200"
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: container-one
+  name: container-one
+spec:
+  containers:
+  - image: nginx:1.17
+    name: container-one
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
