@@ -1,0 +1,1 @@
+kubectl get node node01 -o json > /node-info.json
