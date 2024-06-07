@@ -1,0 +1,150 @@
+apiVersion: v1
+kind: Node
+metadata:
+  annotations:
+    flannel.alpha.coreos.com/backend-data: '{"VNI":1,"VtepMAC":"2a:4f:2e:65:ea:fa"}'
+    flannel.alpha.coreos.com/backend-type: vxlan
+    flannel.alpha.coreos.com/kube-subnet-manager: "true"
+    flannel.alpha.coreos.com/public-ip: 172.30.1.2
+    kubeadm.alpha.kubernetes.io/cri-socket: unix:///var/run/containerd/containerd.sock
+    node.alpha.kubernetes.io/ttl: "0"
+    projectcalico.org/IPv4Address: 172.30.1.2/24
+    projectcalico.org/IPv4IPIPTunnelAddr: 192.168.0.1
+    volumes.kubernetes.io/controller-managed-attach-detach: "true"
+  creationTimestamp: "2024-05-11T15:42:50Z"
+  labels:
+    beta.kubernetes.io/arch: amd64
+    beta.kubernetes.io/os: linux
+    kubernetes.io/arch: amd64
+    kubernetes.io/hostname: controlplane
+    kubernetes.io/os: linux
+    node-role.kubernetes.io/control-plane: ""
+    node.kubernetes.io/exclude-from-external-load-balancers: ""
+    type: cpu
+  name: controlplane
+  resourceVersion: "4512"
+  uid: 33c23f95-3f4e-4500-a1d4-c0e95f874d29
+spec:
+  podCIDR: 192.168.0.0/24
+  podCIDRs:
+  - 192.168.0.0/24
+status:
+  addresses:
+  - address: 172.30.1.2
+    type: InternalIP
+  - address: controlplane
+    type: Hostname
+  allocatable:
+    cpu: "1"
+    ephemeral-storage: "19586931083"
+    hugepages-2Mi: "0"
+    memory: 1928540Ki
+    pods: "110"
+  capacity:
+    cpu: "1"
+    ephemeral-storage: 20134592Ki
+    hugepages-2Mi: "0"
+    memory: 2030940Ki
+    pods: "110"
+  conditions:
+  - lastHeartbeatTime: "2024-06-07T13:41:49Z"
+    lastTransitionTime: "2024-06-07T13:41:49Z"
+    message: Flannel is running on this node
+    reason: FlannelIsUp
+    status: "False"
+    type: NetworkUnavailable
+  - lastHeartbeatTime: "2024-06-07T14:11:52Z"
+    lastTransitionTime: "2024-05-11T15:42:47Z"
+    message: kubelet has sufficient memory available
+    reason: KubeletHasSufficientMemory
+    status: "False"
+    type: MemoryPressure
+  - lastHeartbeatTime: "2024-06-07T14:11:52Z"
+    lastTransitionTime: "2024-05-11T15:42:47Z"
+    message: kubelet has no disk pressure
+    reason: KubeletHasNoDiskPressure
+    status: "False"
+    type: DiskPressure
+  - lastHeartbeatTime: "2024-06-07T14:11:52Z"
+    lastTransitionTime: "2024-05-11T15:42:47Z"
+    message: kubelet has sufficient PID available
+    reason: KubeletHasSufficientPID
+    status: "False"
+    type: PIDPressure
+  - lastHeartbeatTime: "2024-06-07T14:11:52Z"
+    lastTransitionTime: "2024-05-11T15:43:12Z"
+    message: kubelet is posting ready status
+    reason: KubeletReady
+    status: "True"
+    type: Ready
+  daemonEndpoints:
+    kubeletEndpoint:
+      Port: 10250
+  images:
+  - names:
+    - docker.io/calico/cni@sha256:e60b90d7861e872efa720ead575008bc6eca7bee41656735dcaa8210b688fcd9
+    - docker.io/calico/cni:v3.24.1
+    sizeBytes: 87382462
+  - names:
+    - docker.io/calico/node@sha256:43f6cee5ca002505ea142b3821a76d585aa0c8d22bc58b7e48589ca7deb48c13
+    - docker.io/calico/node:v3.24.1
+    sizeBytes: 80180860
+  - names:
+    - docker.io/library/nginx@sha256:0f04e4f646a3f14bf31d8bc8d885b6c951fdcf42589d06845f64d18aec6a3c4d
+    - docker.io/library/nginx:latest
+    sizeBytes: 71004355
+  - names:
+    - registry.k8s.io/etcd@sha256:44a8e24dcbba3470ee1fee21d5e88d128c936e9b55d4bc51fbef8086f8ed123b
+    - registry.k8s.io/etcd:3.5.12-0
+    sizeBytes: 57236178
+  - names:
+    - registry.k8s.io/kube-apiserver@sha256:6b8e197b2d39c321189a475ac755a77896e34b56729425590fbc99f3a96468a3
+    - registry.k8s.io/kube-apiserver:v1.30.0
+    sizeBytes: 32663599
+  - names:
+    - docker.io/calico/kube-controllers@sha256:4010b2739792ae5e77a750be909939c0a0a372e378f3c81020754efcf4a91efa
+    - docker.io/calico/kube-controllers:v3.24.1
+    sizeBytes: 31125927
+  - names:
+    - registry.k8s.io/kube-controller-manager@sha256:5f52f00f17d5784b5ca004dffca59710fa1a9eec8d54cebdf9433a1d134150fe
+    - registry.k8s.io/kube-controller-manager:v1.30.0
+    sizeBytes: 31030110
+  - names:
+    - registry.k8s.io/kube-proxy@sha256:ec532ff47eaf39822387e51ec73f1f2502eb74658c6303319db88d2c380d0210
+    - registry.k8s.io/kube-proxy:v1.30.0
+    sizeBytes: 29020473
+  - names:
+    - quay.io/coreos/flannel@sha256:9a296fbb67790659adc3701e287adde3c59803b7fcefe354f1fc482840cdb3d9
+    - quay.io/coreos/flannel:v0.15.1
+    sizeBytes: 21673107
+  - names:
+    - registry.k8s.io/kube-scheduler@sha256:2353c3a1803229970fcb571cffc9b2f120372350e01c7381b4b650c4a02b9d67
+    - registry.k8s.io/kube-scheduler:v1.30.0
+    sizeBytes: 19208660
+  - names:
+    - registry.k8s.io/coredns/coredns@sha256:1eeb4c7316bacb1d4c8ead65571cd92dd21e27359f0d4917f1a5822a73b75db1
+    - registry.k8s.io/coredns/coredns:v1.11.1
+    sizeBytes: 18182961
+  - names:
+    - docker.io/rancher/local-path-provisioner@sha256:ad40581f52bc1b8717ddfae5a33257110f11698a11751a95afc48e62d35abefc
+    - docker.io/rancher/local-path-provisioner:master-head
+    sizeBytes: 17182074
+  - names:
+    - registry.k8s.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
+    - registry.k8s.io/pause:3.9
+    sizeBytes: 321520
+  - names:
+    - registry.k8s.io/pause@sha256:1ff6c18fbef2045af6b9c16bf034cc421a29027b800e4f9b68ae9b1cb3e9ae07
+    - registry.k8s.io/pause:3.5
+    sizeBytes: 301416
+  nodeInfo:
+    architecture: amd64
+    bootID: 21a98c5d-863e-4e5a-a33c-9e49cdf339a9
+    containerRuntimeVersion: containerd://1.7.13
+    kernelVersion: 5.4.0-131-generic
+    kubeProxyVersion: v1.30.0
+    kubeletVersion: v1.30.0
+    machineID: 388a2d0f867a4404bc12a0093bd9ed8d
+    operatingSystem: linux
+    osImage: Ubuntu 20.04.5 LTS
+    systemUUID: d4559ab2-192e-4e09-b4c2-3bb33a9d4d3a

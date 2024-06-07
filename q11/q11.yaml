@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  password: UGFzc3cwcmQx
+  username: YWRtaW5fbWlrZQ==
+kind: Secret
+metadata:
+  name: mike-secret
+type: Opaque
