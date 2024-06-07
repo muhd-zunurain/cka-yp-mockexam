@@ -1,0 +1,12 @@
+kubectl set image deploy q4 nginx=nginx:1.19
+
+controlplane $ kubectl get deployments.apps -o wide
+NAME   READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES       SELECTOR
+q4     1/1     1            1           2m58s   nginx        nginx:1.19   app=q4
+controlplane $ kubectl rollout undo deployment q4
+deployment.apps/q4 rolled back
+controlplane $ kubectl get deployments.apps -o wide
+NAME   READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES       SELECTOR
+q4     1/1     1            1           3m19s   nginx        nginx:1.18   app=q4
+
+
