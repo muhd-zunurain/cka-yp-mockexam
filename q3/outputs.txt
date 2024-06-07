@@ -1,0 +1,3 @@
+controlplane $ kubectl get pods -n custom-ns 
+NAME       READY   STATUS    RESTARTS   AGE
+test-pod   1/1     Running   0          5s
